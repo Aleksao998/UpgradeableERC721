@@ -5,8 +5,8 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const provider = new HDWalletProvider(
-  "0x0696323291c852ab9bd625d77b0f5fee8ad8399088eb0af603799988a67d9f8e",
-  "https://rpc.testnet.rario.com"
+  "0x4a3a1205239c37f52fa260e4c2878b62de55a8104ac2d012165013922d6c1b9f",
+  "http://localhost:10002"
 );
 
 /* instance for action call */
@@ -19,19 +19,15 @@ const options2 = {
 
 /* instance for event listen */
 const newweb3 = new Web3(
-  new Web3.providers.HttpProvider("https://rpc.testnet.rario.com"),
+  new Web3.providers.HttpProvider("http://localhost:10002"),
   options2
 );
 
 async function transaction() {
   try {
-    console.log("USAOO")
-
-    //deploy contract
-    
     
     const contractABI = interface;
-    const contractAddress = "0x5BFaB60629f1bf1ff3e04fa8aeb113d77C4D60DA"
+    const contractAddress = "0x88fcA7eD4B7902010ECc81CC51dF71ABd95466eC"
     const contractConnection = new web3.eth.Contract(
       contractABI,
       contractAddress
@@ -39,12 +35,12 @@ async function transaction() {
 
     const contract = await new newweb3.eth.Contract(interface, contractAddress);
 
-    const account =  "0x378F09511aF51c0cf314F88E4c911cC2623af485";
+    const account = "0x30ea4435167Ee91f9f874b5a894F3282A956C3FF";
     console.log("start Minting:", new Date());
 
     
     await contractConnection.methods
-      .mint(account, 1)
+      .mint(account,0)
       .send({
         from: account,
         gas: "5242870",
